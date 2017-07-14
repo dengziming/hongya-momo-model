@@ -1,7 +1,7 @@
-package com.hongya.bigdata.day07
+package com.hongya.bigdata.momo
 
 /**
-  * Created by allanhwang on 17-5-9.
+  * Created by dengziming on 17-5-9.
   */
 import java.util.Properties
 
