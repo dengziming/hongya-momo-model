@@ -78,7 +78,7 @@ object Recommend {
     val fields: Array[StructField] = Array(
       StructField("user",IntegerType),
       StructField("recommend",IntegerType))
-    )
+
     val sc = recommend.sparkContext
     val sqlContext = new SQLContext(sc)
     val rows = sqlContext.createDataFrame(rowRDD,StructType(fields))
