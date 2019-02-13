@@ -17,11 +17,12 @@ object Recommend {
   lazy val url = "jdbc:mysql://localhost:3306/test"
   lazy val username = "root"
   lazy val password = "123456"
-  val data_path = "/Users/dengziming/Documents/hongya/data/day07/actionlist2.txt"
+  val data_path = "/Users/dengziming/ideaspace/hongya/hongya-momo-recommond/src/main/resources/actionlist.txt"
 
   def main(args: Array[String]) {
     val sc = new SparkContext(new SparkConf().setAppName("RDF").setMaster("local[1]"))
-
+    // 加上这句，可以防止 Stack Overflow
+    sc.setCheckpointDir("checkpoint/")
     // 开始读取用户评分数据...
     val rawUserData = sc.textFile(data_path)
     val rawRatings = rawUserData.map(_.split("\t").take(3))
